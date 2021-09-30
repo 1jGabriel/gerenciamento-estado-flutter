@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'formulario.dart';
+import 'item.dart';
 
-const _tituloAppBar = 'Transferências';
+const _tituloAppBar = 'Extrato';
 
-class ListaTransferencias extends StatelessWidget {
+class ListaMovimentacoes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,11 @@ class ListaTransferencias extends StatelessWidget {
             itemCount: transferencias.transferencias.length,
             itemBuilder: (context, indice) {
               final transferencia = transferencias.transferencias[indice];
-              return ItemTransferencia(transferencia);
+
+              return Item.transferencia(
+                transferencia.toStringValor(),
+                transferencia.toStringConta(),
+              );
             },
           );
         },
@@ -45,11 +50,10 @@ class ItemTransferencia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ListTile(
-        leading: Icon(Icons.monetization_on),
-        title: Text(_transferencia.toStringValor()),
-        subtitle: Text(_transferencia.toStringConta()),
-      ),
-    );
+        child: ListTile(
+          leading: Icon(Icons.monetization_on),
+          title: Text(_transferencia.toStringValor()),
+          subtitle: Text(_transferencia.toStringConta()),
+        ));
   }
 }

@@ -39,19 +39,13 @@ class FormularioDeposito extends StatelessWidget {
 
   void _criaDeposito(BuildContext context) {
     final double valor = double.tryParse(_controladorCampoValor.text) ?? 0;
-    final depositoValido = _validaTransferencia(context, valor);
+    final depositoValido = valor >= 0;
 
     if (depositoValido) {
       _atualizaEstado(context, valor);
 
       Navigator.pop(context);
     }
-  }
-
-  _validaTransferencia(context, valor) {
-    final _campoPreenchido = valor != null;
-
-    return _campoPreenchido;
   }
 
   _atualizaEstado(context, valor) {

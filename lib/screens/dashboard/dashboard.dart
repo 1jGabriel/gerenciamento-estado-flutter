@@ -1,6 +1,7 @@
 import 'package:bytebank_modulo_6/model/saldo.dart';
 import 'package:bytebank_modulo_6/screens/deposito/formulario_deposito.dart';
 import 'package:bytebank_modulo_6/screens/dashboard/saldo_card.dart';
+import 'package:bytebank_modulo_6/screens/transferencia/formulario.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -38,11 +39,11 @@ class Dashboard extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return FormularioDeposito();
+                      return FormularioTransferencia();
                     },
                   ),
                 ),
-                child: Text('Nova Transfeerncia'),
+                child: Text('Nova Transferência'),
               ),
             ]
           )

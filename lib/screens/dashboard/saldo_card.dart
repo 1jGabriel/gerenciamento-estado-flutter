@@ -7,7 +7,8 @@ class SaldoCard extends StatelessWidget {
     return Card(
       child: Padding(
         padding: EdgeInsets.all(20.0),
-        child: Consumer<Saldo>(
+        child: Consumer<Saldo>( // se utiliza o Consumer de Saldo como child,
+          // pois este item precisa ser atualizado sempre que o saldo mudar
           builder: (context, valor, child) {
             return Text(
               valor.toString(),

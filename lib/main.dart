@@ -1,10 +1,22 @@
 import 'package:bytebank_modulo_6/model/saldo.dart';
-import 'package:bytebank_modulo_6/screens/dashboard.dart';
+import 'package:bytebank_modulo_6/screens/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(ChangeNotifierProvider(
-      create: (context) => Saldo(0),
+import 'model/transferencias.dart';
+
+// Para utilizar o provider é necessário envolver os componentes que vão
+// escutar alguma propriedade dentro do ChangeNotifierProvdier, neste caso
+// foi toda a aplicação
+void main() => runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => Saldo(0),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Transferencias(),
+        )
+      ],
       child: BytebankApp(),
     ));
 
